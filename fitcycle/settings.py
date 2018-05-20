@@ -9,10 +9,6 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
-mysqlId=os.environ['MYSQL_ID']
-mysqlPassword=os.environ['MYSQL_PASSWORD']
-mysqlServer=os.environ['MYSQL_SERVER']
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -80,9 +76,9 @@ DATABASES = {
   'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'prospect',
-        'USER': mysqlId,
-        'PASSWORD': mysqlPassword,
-        'HOST': mysqlServer,   # Or an IP Address that your DB is hosted on
+        'USER': 'db_app_user',
+        'PASSWORD': 'VMware123!',
+        'HOST': 'fitcyclecustomers.cy4b7ufzt54x.us-west-2.rds.amazonaws.com',   # Or an IP Address that your DB is hosted on
 
     }
 
