@@ -125,11 +125,22 @@ STATIC_URL = '/static/'
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'formatters': {
+        'console': {
+            # exact format is not important, this is the minimum information
+            'format': '%(asctime)s %(name)s %(levelname)s %(message)s',
+        },
+    },
     'handlers': {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': '/var/log/django-debug.log',
+            'formatter': 'console',
+            'filename': '/tmp/django-debug.log',
+        },
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter':'console',
         },
 
     },
@@ -141,6 +152,7 @@ LOGGING = {
         },
     },
 }
+
 
 STATSD_HOST = 'localhost'
 STATSD_PORT = 8125
