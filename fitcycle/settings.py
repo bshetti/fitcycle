@@ -142,11 +142,15 @@ LOGGING = {
             'class': 'logging.StreamHandler',
             'formatter':'console',
         },
-
+        'sys-log':{
+            'class': 'logging.handlers.SysLogHandler',
+            'address': '/dev/log',
+            'formatter': 'console',
+        },
     },
     'loggers': {
         'django': {
-            'handlers': ['file'],
+            'handlers': ['sys-log'],
             'level': 'DEBUG',
             'propagate': True,
         },
